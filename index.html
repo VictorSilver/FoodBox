@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Foodbox</title>
+
+    <style>
+      body {
+        background: lightgray;
+      }
+
+      .topo {
+        background: red;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0 lightgray;
+      }
+
+      .produto {
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        color: black;
+        box-shadow: 0 0 10px 0 lightgray;
+        cursor: pointer;
+        border: 5px solid white;
+      }
+
+      .botao {
+        background: rgb(27, 168, 27);
+        padding: 15px;
+        border-radius: 25px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+    
+      h1 {
+        margin: 0;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+        color: black;
+      }
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        font-size: 20px;
+      }
+
+      img {
+        width: 130px;
+        border-radius: 5px;
+        float: right;
+      }
+
+      .preco  {
+        font-size: large;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div class="topo">
+      <h1>Foodbox</h1>
+      <h2>Monte seu box e receba em 15 minutos!</h2>
+    </div>
+
+    <h3>Primeiro, seu prato:</h3>
+    <div id="frango" class="produto" onclick="escolherFrango()">
+      <img src="./files/1.jpg" alt="Frango Xadrêz">
+      <h4>Frango Xadrêz</h4>
+      <p>Um prato chinês frito e apimentado feito com frango, amendoim, legumes, e pimenta vermelha.</p>
+      <p class="preco">R$19,90</p>
+    </div>
+
+    <div id="yakisoba" class="produto" onclick="escolherYakisoba()">
+      <img src="./files/2.jpg" alt="Yakisoba">
+      <h4>Yakissoba</h4>
+      <p>Macarrão frito com cenoura, brócolis e pedaços de carne. </p>
+      <p class="preco">R$22,90</p>
+    </div>
+
+    <h3>Agora, sua bebida:</h3>
+    <div id="refrigerante" class="produto" onclick="escolherRefrigerante()">
+      <img src="./files/3.jpg" alt="Refrigerante">
+      <h4>Refrigerante Lata</h4>
+      <p>Coca cola, Fanta Laranja, Fanta Uva, Sprite <br> 350ml</p>
+      <p class="preco">R$6,00</p>
+    </div>
+
+    <div id="suco" class="produto" onclick="escolherSuco()">
+      <img src="./files/4.jpg" alt="Suco">
+      <h4>Suco Natural</h4>
+      <p>Laranja, Morango, Melancia, Maracujá <br> 500ml</p>
+      <p class="preco">R$9,90</p>
+    </div>
+
+    <h3>Por fim, sua sobremesa:</h3>
+    <div id="pudim" class="produto" onclick="escolherPudim()">
+      <img src="./files/5.jpg" alt="Pudim">
+      <h4>Pudim</h4>
+      <p>Pudim de leite condensado</p>
+      <p class="preco">R$7,90</p>
+    </div>
+
+    <div id="sorvete" class="produto" onclick="escolherSorvete()">
+      <img src="./files/6.jpg" alt="sorvete">
+      <h4>Sorvete</h4>
+      <p>Uma bola, chocolate ou flocos</p>
+      <p class="preco">R$6,90</p>
+    </div>
+
+    <div class="botao" onclick="finalizarPedido()">
+      Finalizar pedido
+    </div>
+
+    <script>
+      let prato;
+      let bebida;
+      let sobremesa;
+
+      function escolherFrango() {
+        document.getElementById("frango").style.borderColor = "limegreen"
+        document.getElementById("yakisoba").style.borderColor = "white"
+        prato = "Frango";
+      }
+
+      function escolherYakisoba() {
+        document.getElementById("yakisoba").style.borderColor = "limegreen"
+        document.getElementById("frango").style.borderColor = "white"
+        prato = "Yakisoba";
+      }
+
+      function escolherRefrigerante() {
+        document.getElementById("refrigerante").style.borderColor = "limegreen"
+        document.getElementById("suco").style.borderColor = "white"
+        bebida = "Refrigerante";
+      }
+
+      function escolherSuco() {
+        document.getElementById("suco").style.borderColor = "limegreen"
+        document.getElementById("refrigerante").style.borderColor = "white"
+        bebida = "Suco";
+      }
+
+      function escolherPudim() {
+        document.getElementById("pudim").style.borderColor = "limegreen"
+        document.getElementById("sorvete").style.borderColor = "white"
+        sobremesa = "Pudim";
+      }
+
+      function escolherSorvete() {
+        document.getElementById("sorvete").style.borderColor = "limegreen"
+        document.getElementById("pudim").style.borderColor = "white"
+        sobremesa = "Sorvete";
+      }
+
+      function finalizarPedido() {
+        let mensagem;
+
+          mensagem = 
+            "Olá, gostaria de pedir um combo: "
+            + prato + 
+            ", " + 
+            bebida + 
+            " e " + 
+            sobremesa;
+        
+        window.open("https://wa.me/+5511999999999?text=" + mensagem);
+      }
+
+    </script>
+
+  </body>
+</html>
